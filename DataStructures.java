@@ -72,7 +72,21 @@ public class MyLinkedList {
 			tempNode = tempNode.getNext();
 		}
 		return returnNode;
-	
+	}
+
+	public void insertWhenFound(Integer keyValueToSearch, INode myNodeToAdd) {
+		INode tempNode = head;
+		while(tempNode != null) {
+			Integer tempKeyValue = (Integer) tempNode.getKey(); 
+			if(keyValueToSearch == tempKeyValue) {
+				INode tempNodeShift = tempNode.getNext();
+				tempNode.setNext(myNodeToAdd);
+				myNodeToAdd.setNext(tempNodeShift);
+			}
+			tempNode = tempNode.getNext();
+		}
+	}
+}
 public interface INode<K> {
 	public K getKey();
 	public void setKey(K key);
