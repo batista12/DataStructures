@@ -1,3 +1,4 @@
+package com.capgemini.Linkedlist;
 public class MyLinkedList {
 	public INode head;
 	public INode tail;
