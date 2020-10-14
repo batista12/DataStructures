@@ -29,7 +29,7 @@ public class MyLinkedList {
 		}
 	}	
 
-	public void printNodes() {
+	public void printMyNodes() {
 		INode tempNode = head;
 		while(tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
@@ -61,7 +61,18 @@ public class MyLinkedList {
 		this.tail.setNext(null);
 		return tempNode;
 	}
-}
+
+	public INode findNode(INode searchNode) {
+		INode tempNode = head, returnNode = null;
+		while(tempNode != null) {
+			if(tempNode.equals(searchNode)) {
+				returnNode = searchNode;
+				break;
+			}
+			tempNode = tempNode.getNext();
+		}
+		return returnNode;
+	
 public interface INode<K> {
 	public K getKey();
 	public void setKey(K key);
