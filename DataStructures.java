@@ -2,7 +2,6 @@ public class MyLinkedList<k> {
 	public INode<k> head;
 	public INode<k> tail;
 	private int size;
-
 	public MyLinkedList() {
 		this.head = null;
 		this.tail = null;
@@ -37,6 +36,22 @@ public class MyLinkedList<k> {
 			this.head = newNode;
 			this.head.setNext(temp);
 		}
+	public MyLinkedList() {
+		this.head = null;
+		this.tail = null;
+	}
+
+	public void add(INode<k> newNode) {
+		if (this.head == null) {
+			this.head = newNode;
+		}
+		if (this.tail == null) {
+			this.tail = newNode;
+		} else {
+			this.tail.setNext(newNode);
+			//this.tail=newNode;
+			this.tail = this.tail.getNext();
+    }
 	}
 
 	public void printMyNodes() {
@@ -58,6 +73,11 @@ public class MyLinkedList<k> {
 		list.append(node1);
 		list.append(node3);
 		list.insert(node1, node2);
+		list.add(node3);
+		MyNode<Integer> node2 = new MyNode<Integer>(30);
+		list.add(node2);
+		MyNode<Integer> node1 = new MyNode<Integer>(56);
+		list.add(node1);
 		list.printMyNodes();
 	}
 }
